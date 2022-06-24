@@ -94,7 +94,7 @@ public class StateGenerateMain {
             }
         }
         // 获取该文件路径
-        String filePath = "/interesting/DevStandard/src/main/java/dev/standard/sort/StateGenerateMain.java";
+        String filePath = "/interesting/DevStandard/src/main/java/dev/standard/generate/StateGenerateMain.java";
         File   file     = new File(System.getProperty("user.dir"), filePath);
         // 读取该文件内容
         List<String> textLists = FileIOUtils.readFileToList(file, DevFinal.ENCODE.UTF_8);
