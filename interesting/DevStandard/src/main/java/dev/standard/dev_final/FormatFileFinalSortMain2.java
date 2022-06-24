@@ -14,12 +14,19 @@ import dev.utils.common.FileUtils;
 import dev.utils.common.StringUtils;
 
 /**
- * detail: DevFinal.STR 常量格式化排序
+ * detail: DevFinal 常量格式化排序
  * @author Ttt
+ * <pre>
+ *     复制 DevFinal 文件代码到 format2.txt 中
+ *     然后运行 main 方法后 copy result.txt 内容覆盖 DevFinal 类代码
+ * </pre>
  */
-public class FormatFileFinalSortMain {
+public class FormatFileFinalSortMain2 {
 
     public static void main(String[] args) {
+        // 标记状态
+        boolean tagState = false;
+        // 排序常量信息
         List<String>        sortList  = new ArrayList<>();
         Map<String, String> resultMap = new HashMap<>();
         // 拼接结果数据
@@ -27,11 +34,24 @@ public class FormatFileFinalSortMain {
         // 读取待格式化文件内容
         List<String> texts = FileIOUtils.readFileToList(getFormatFilePath());
         for (String text : texts) {
-            if (!text.contains(PSFS)) {
-                sortAppend(builder, sortList, resultMap);
-                builder.append(text).append(DevFinal.SYMBOL.NEW_LINE);
+            // 如果是起点
+            if (text.contains(START_TAG)) {
+                tagState = true;
+            } else if (tagState) {
+                if (text.contains(END_TAG)) {
+                    sortAppend(builder, sortList, resultMap);
+                    tagState = false;
+                }
+            }
+            if (tagState) {
+                if (!text.contains(PSFS)) {
+                    sortAppend(builder, sortList, resultMap);
+                    builder.append(text).append(DevFinal.SYMBOL.NEW_LINE);
+                } else {
+                    convertPSFS(text, sortList, resultMap);
+                }
             } else {
-                convertPSFS(text, sortList, resultMap);
+                builder.append(text).append(DevFinal.SYMBOL.NEW_LINE);
             }
         }
         String content = builder.toString();
@@ -52,13 +72,17 @@ public class FormatFileFinalSortMain {
 
     private static final String PSFS            = "public static final String ";
     private static final String PSFS_LOWER_CASE = PSFS.toLowerCase();
+    // 起点标记
+    private static final String START_TAG       = "public static final class STR {";
+    // 结尾标记
+    private static final String END_TAG         = " }";
 
     private static String getPackagePath() {
-        return new File("/interesting/DevStandard/src/main/java/dev/standard/dev_final").getAbsolutePath();
+        return new File("src/main/java/dev_final").getAbsolutePath();
     }
 
     private static String getFormatFilePath() {
-        return new File(getPackagePath(), "format.txt").getAbsolutePath();
+        return new File(getPackagePath(), "format2.txt").getAbsolutePath();
     }
 
     private static String getResultFilePath() {
