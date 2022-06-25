@@ -3,7 +3,7 @@ dependencies {
 	// = dev =
 
 	// dev_app_x
-	"io.github.afkt:DevAppX:2.3.8",
+	"io.github.afkt:DevAppX:2.3.9",
 	// dev_assist
 	"io.github.afkt:DevAssist:1.3.5",
 	// dev_base
@@ -13,7 +13,7 @@ dependencies {
 	// dev_engine
 	"io.github.afkt:DevEngine:1.0.7",
 	// dev_java
-	"io.github.afkt:DevJava:1.4.4",
+	"io.github.afkt:DevJava:1.4.5",
 	// dev_widget_x
 	"io.github.afkt:DevWidgetX:1.1.8",
 	// dev_environment
