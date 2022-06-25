@@ -33,9 +33,9 @@ public class SAXReadHandler
     ) {
         tempElement = qName;
         if (qName != null && qName.trim().length() > 0) {
-            if (qName.equals(ELEMENT_RESOURCE)) {
+            if (ELEMENT_RESOURCE.equals(qName)) {
                 list = new ArrayList<>();
-            } else if (qName.equals(ELEMENT_DIMEN)) {
+            } else if (ELEMENT_DIMEN.equals(qName)) {
                 dimenBean = new DimenItem();
                 if (attributes != null && attributes.getLength() > 0) {
                     dimenBean.name = attributes.getValue(PROPERTY_NAME);
@@ -51,7 +51,7 @@ public class SAXReadHandler
             String qName
     ) {
         if (qName != null && qName.trim().length() > 0) {
-            if (qName.equals(ELEMENT_DIMEN)) {
+            if (ELEMENT_DIMEN.equals(qName)) {
                 // dimen 结束标签, 添加对象到集合
                 if (list != null) {
                     list.add(dimenBean);

@@ -2970,7 +2970,7 @@ public final class ViewUtils {
                 if (isReflection) {
                     Field[] fields = FieldUtils.getFields(layoutParams);
                     for (Field field : fields) {
-                        if (field.getName().equals("gravity")) {
+                        if ("gravity".equals(field.getName())) {
                             return (int) field.get(layoutParams);
                         }
                     }
@@ -3028,7 +3028,7 @@ public final class ViewUtils {
                 if (isReflection) {
                     Field[] fields = FieldUtils.getFields(layoutParams);
                     for (Field field : fields) {
-                        if (field.getName().equals("gravity")) {
+                        if ("gravity".equals(field.getName())) {
                             field.set(layoutParams, gravity);
                             view.setLayoutParams(layoutParams);
                             return true;
