@@ -175,7 +175,7 @@ public class ColorSortMain {
             )
                     throws SAXException {
                 super.startElement(uri, localName, qName, attributes);
-                if (qName.equals("color")) {
+                if ("color".equals(qName)) {
                     this.colorKey = attributes.getValue("name");
                 }
             }
@@ -188,7 +188,7 @@ public class ColorSortMain {
             )
                     throws SAXException {
                 super.endElement(uri, localName, qName);
-                if (qName.equals("color")) {
+                if ("color".equals(qName)) {
                     lists.add(new ColorUtils.ColorInfo(colorKey, colorValue));
                 }
             }
@@ -202,7 +202,7 @@ public class ColorSortMain {
                     throws SAXException {
                 super.characters(ch, start, length);
                 String value = new String(ch, start, length).trim();
-                if (!value.equals("")) {
+                if (!"".equals(value)) {
                     this.colorValue = value; // 可设置全部值转大写、小写
                 }
             }

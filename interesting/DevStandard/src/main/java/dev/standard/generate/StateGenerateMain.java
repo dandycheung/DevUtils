@@ -151,7 +151,7 @@ public class StateGenerateMain {
                 .append(START_SET_STR);
         // 循环变量名
         for (String name : lists) {
-            if (name.equalsIgnoreCase("base")) continue;
+            if ("base".equalsIgnoreCase(name)) continue;
             if (name.contains("_BASE")) continue;
             if (name.contains("_base")) continue;
             // 获取注释

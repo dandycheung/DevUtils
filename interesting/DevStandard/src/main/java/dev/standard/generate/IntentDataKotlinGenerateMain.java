@@ -96,7 +96,7 @@ public class IntentDataKotlinGenerateMain {
             String nameUpperCase = name.toUpperCase();
 
             // class 特殊处理防止 getClass
-            if (finalName.equalsIgnoreCase("class")) {
+            if ("class".equalsIgnoreCase(finalName)) {
                 finalName = finalName.toUpperCase();
             }
 
