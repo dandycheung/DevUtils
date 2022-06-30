@@ -3,6 +3,7 @@ package dev.kotlin.engine.media
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import androidx.fragment.app.Fragment
 import dev.engine.DevEngine
 import dev.engine.media.IMediaEngine
@@ -27,6 +28,23 @@ internal fun getEngine(engine: String?): IMediaEngine<in IMediaEngine.EngineConf
 // ====================
 // = Key Media Engine =
 // ====================
+
+// ==========
+// = 配置方法 =
+// ==========
+
+fun <Config : IMediaEngine.EngineConfig> media_getConfig(
+    engine: String? = null
+): Config? {
+    return getEngine(engine)?.config as? Config
+}
+
+fun <Config : IMediaEngine.EngineConfig> media_setConfig(
+    engine: String? = null,
+    config: Config?
+) {
+    getEngine(engine)?.config = config
+}
 
 // =============
 // = 对外公开方法 =
@@ -87,58 +105,6 @@ fun <Config : IMediaEngine.EngineConfig> Fragment.media_openGallery(
 }
 
 // ==========
-// = 配置方法 =
-// ==========
-
-fun <Config : IMediaEngine.EngineConfig> media_getConfig(
-    engine: String? = null
-): Config? {
-    return getEngine(engine)?.config as? Config
-}
-
-fun <Config : IMediaEngine.EngineConfig> media_setConfig(
-    engine: String? = null,
-    config: Config?
-) {
-    getEngine(engine)?.config = config
-}
-
-fun media_getCameraSavePath(
-    engine: String? = null
-): String? {
-    return getEngine(engine)?.cameraSavePath
-}
-
-fun media_getCompressSavePath(
-    engine: String? = null
-): String? {
-    return getEngine(engine)?.compressSavePath
-}
-
-fun media_setSavePath(
-    engine: String? = null,
-    cameraSavePath: String?,
-    compressSavePath: String?
-) {
-    getEngine(engine)?.setSavePath(
-        cameraSavePath, compressSavePath
-    )
-}
-
-fun media_getMinimumCompressSize(
-    engine: String? = null
-): Int {
-    return getEngine(engine)?.minimumCompressSize ?: 0
-}
-
-fun media_setMinimumCompressSize(
-    engine: String? = null,
-    minimumCompressSize: Int
-) {
-    getEngine(engine)?.minimumCompressSize = minimumCompressSize
-}
-
-// ==========
 // = 其他方法 =
 // ==========
 
@@ -171,11 +137,11 @@ fun <Data : IMediaEngine.EngineData> Intent.media_getSelectors(
     return getEngine(engine)?.getSelectors(this) as? List<Data?>
 }
 
-fun Intent.media_getSelectorPaths(
+fun Intent.media_getSelectorUris(
     engine: String? = null,
     original: Boolean
-): List<String?>? {
-    return getEngine(engine)?.getSelectorPaths(this, original)
+): List<Uri?>? {
+    return getEngine(engine)?.getSelectorUris(this, original)
 }
 
 fun <Data : IMediaEngine.EngineData> Intent.media_getSingleSelector(
@@ -184,9 +150,9 @@ fun <Data : IMediaEngine.EngineData> Intent.media_getSingleSelector(
     return getEngine(engine)?.getSingleSelector(this) as? Data
 }
 
-fun Intent.media_getSingleSelectorPath(
+fun Intent.media_getSingleSelectorUri(
     engine: String? = null,
     original: Boolean
-): String? {
-    return getEngine(engine)?.getSingleSelectorPath(this, original)
+): Uri? {
+    return getEngine(engine)?.getSingleSelectorUri(this, original)
 }
