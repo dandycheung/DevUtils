@@ -164,7 +164,13 @@ dependencies {
 	// panelSwitchHelper
 	"com.github.YummyLau:PanelSwitchHelper:1.4.0",
 	// pictureSelector
-	"io.github.lucksiege:pictureselector:v2.7.3-rc10",
+	"io.github.lucksiege:pictureselector:v3.10.3",
+	// pictureSelector_compress
+	"io.github.lucksiege:compress:v3.10.3",
+	// pictureSelector_ucrop
+	"io.github.lucksiege:ucrop:v3.10.3",
+	// pictureSelector_camerax
+	"io.github.lucksiege:camerax:v3.10.3",
 	// lottie
 	"com.airbnb.android:lottie:5.2.0",
 	// aria_core
