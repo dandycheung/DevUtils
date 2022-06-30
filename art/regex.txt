@@ -59,3 +59,12 @@ set[A-Z]{1}[a-z]{1}[A-Z]{1}
 setm
 getm
 etm
+ism
+
+
+
+[ ]+boolean[ ]+is[A-Za-z]+
+
+[ ]+boolean[ ]+[m]{0,1}is[A-Za-z]+
+
+[ ]+boolean[ ]+[m]{0,1}[Ii]{1}s[A-Za-z]+
