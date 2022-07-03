@@ -104,6 +104,34 @@ fun <Config : IMediaEngine.EngineConfig> Fragment.media_openGallery(
     return getEngine(engine)?.openGallery(this, config) ?: false
 }
 
+// =
+
+fun Activity.media_openPreview(
+    engine: String? = null
+): Boolean {
+    return getEngine(engine)?.openPreview(this) ?: false
+}
+
+fun <Config : IMediaEngine.EngineConfig> Activity.media_openPreview(
+    engine: String? = null,
+    config: Config?
+): Boolean {
+    return getEngine(engine)?.openPreview(this, config) ?: false
+}
+
+fun Fragment.media_openPreview(
+    engine: String? = null
+): Boolean {
+    return getEngine(engine)?.openPreview(this) ?: false
+}
+
+fun <Config : IMediaEngine.EngineConfig> Fragment.media_openPreview(
+    engine: String? = null,
+    config: Config?
+): Boolean {
+    return getEngine(engine)?.openPreview(this, config) ?: false
+}
+
 // ==========
 // = 其他方法 =
 // ==========
