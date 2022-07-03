@@ -1,10 +1,16 @@
 package dev.standard.vali_phone;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+
 import dev.utils.DevFinal;
 import dev.utils.common.MapUtils;
 import dev.utils.common.StringUtils;
-
-import java.util.*;
 
 /**
  * detail: 验证手机号生成代码
