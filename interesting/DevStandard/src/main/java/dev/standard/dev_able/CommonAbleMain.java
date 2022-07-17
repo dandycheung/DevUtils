@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import dev.utils.DevFinal;
+
 /**
  * detail: Common able 文件生成入口
  * @author Ttt
@@ -12,6 +14,10 @@ public class CommonAbleMain {
 
     public static void main(String[] args) {
         Utils.generateAbleFile(REPLACE_LIST);
+
+        String ignore = getIgnoreAbleCLass();
+
+        String debug = "";
     }
 
     private static final List<Utils.Replace> REPLACE_LIST;
@@ -62,7 +68,7 @@ public class CommonAbleMain {
         REPLACE_LIST = Collections.unmodifiableList(list);
     }
 
-    public static String returnGetAbleAnnotation() {
+    private static String returnGetAbleAnnotation() {
         StringBuilder builder = new StringBuilder();
         builder.append("\n *     <p></p>");
         builder.append("\n *     其他类全部都是 copy {@link Getable} 代码完全一致, 只有方法名、接口名不同");
@@ -71,6 +77,17 @@ public class CommonAbleMain {
         builder.append("\n *     <p></p>");
         builder.append("\n *     正常如 {@link Writeable} write() 方法需要返回写入结果, 可自行传入 <T> 泛型为 Boolean");
         builder.append("\n *     也能自行决定需要返回什么类型值");
+        return builder.toString();
+    }
+
+    private static String getIgnoreAbleCLass() {
+        StringBuilder builder = new StringBuilder();
+        for (Utils.Replace info: REPLACE_LIST) {
+            builder.append(DevFinal.SYMBOL.NEW_LINE)
+                    .append("        sFilterClassSet_APP.add(\"")
+                    .append(info.getFileName())
+                    .append("\");");
+        }
         return builder.toString();
     }
 }
