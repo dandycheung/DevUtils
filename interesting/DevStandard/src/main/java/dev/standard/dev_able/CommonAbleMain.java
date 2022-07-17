@@ -25,6 +25,7 @@ public class CommonAbleMain {
         list.add(new Utils.Replace("Sort", "sort"));
         list.add(new Utils.Replace("Calculate", "calculate"));
         list.add(new Utils.Replace("Call", "callback"));
+        list.add(new Utils.Replace("Method", "invoke"));
         list.add(new Utils.Replace("Clone", "cloneMethod"));
         list.add(new Utils.Replace("Close", "close"));
         list.add(new Utils.Replace("Convert", "convert"));
