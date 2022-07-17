@@ -1,11 +1,12 @@
 package dev.standard.dev_able;
 
-import dev.utils.DevFinal;
-import dev.utils.common.FileUtils;
-import dev.utils.common.StringUtils;
-
 import java.io.File;
 import java.util.List;
+
+import dev.utils.DevFinal;
+import dev.utils.common.FileIOUtils;
+import dev.utils.common.FileUtils;
+import dev.utils.common.StringUtils;
 
 /**
  * detail: DevFinal 字符串常量排序工具类
@@ -23,13 +24,13 @@ final class Utils {
     public static class Replace {
 
         public static final String AAAAA = "AAAAA";
-        public static final String bbbbb = "bbbbb";
+        public static final String BBBBB = "BBBBB";
         public static final String CCCCC = "CCCCC";
 
         // 功能名 -> 替换 AAAAA
         public final String name;
 
-        // 方法名 -> 替换 bbbbb
+        // 方法名 -> 替换 BBBBB
         public final String methodName;
 
         // 补充注释 -> 替换 CCCCC
@@ -71,16 +72,21 @@ final class Utils {
             String content = formatTxt.replaceAll(
                     Replace.AAAAA, info.name
             ).replaceAll(
-                    Replace.bbbbb, info.methodName
+                    Replace.BBBBB, info.methodName
             ).replaceAll(
                     Replace.CCCCC, info.annotation
             );
-            File file = FileUtils.getFile(
-                    getGenerateDirectory(),
+            File devAppAble = FileUtils.getFile(
+                    getGenerateDirectory("DevApp"),
+                    info.getFileName()
+            );
+            File devJavaAble = FileUtils.getFile(
+                    getGenerateDirectory("DevJava"),
                     info.getFileName()
             );
             // 保存文件
-            saveFile(content, FileUtils.getAbsolutePath(file));
+            saveFile(content, FileUtils.getAbsolutePath(devAppAble));
+            saveFile(content, FileUtils.getAbsolutePath(devJavaAble));
         }
     }
 
@@ -96,7 +102,7 @@ final class Utils {
      */
     private static String getFormatTXT() {
         if (FORMAT_TXT == null) {
-            FORMAT_TXT = FileUtils.readFile(getFormatFilePath());
+            FORMAT_TXT = FileIOUtils.readFileToString(getFormatFilePath());
         }
         return FORMAT_TXT;
     }
@@ -141,10 +147,10 @@ final class Utils {
         return new File(getPackagePath(), "format.txt").getAbsolutePath();
     }
 
-    private static String getGenerateDirectory() {
+    private static String getGenerateDirectory(final String module) {
         return new File(
                 System.getProperty("user.dir"),
-                "/lib/DevApp/src/main/java/dev/utils/common/able"
+                "/lib/" + module + "/src/main/java/dev/utils/common/able"
         ).getAbsolutePath();
     }
 }
