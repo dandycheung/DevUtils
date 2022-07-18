@@ -197,7 +197,7 @@ final class Config {
         sApplicationCatalogMap.put("application", "根目录");
         sApplicationCatalogMap.put(".Accessibility", "Android 无障碍使用 ( Activity 栈 )");
         sApplicationCatalogMap.put(".AppInfo", "APP 信息提取器");
-        sApplicationCatalogMap.put(".Demo", "临时测试代码、库调用调试 Demo");
+        sApplicationCatalogMap.put(".DevBaseDemo", "临时测试代码、库调用调试 Demo");
         sApplicationCatalogMap.put(".DevUtilsApp", "DevUtils 代码演示应用");
         sApplicationCatalogMap.put(".GTPush", "个推推送 ( 逻辑 ) 处理 ( 含设备管理 )");
         sApplicationCatalogMap.put(".JPush", "极光推送 ( 逻辑 ) 处理 ( 含设备管理 )");
