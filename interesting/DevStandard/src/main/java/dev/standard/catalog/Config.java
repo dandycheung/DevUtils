@@ -18,9 +18,11 @@ final class Config {
     }
 
     // 当前目录
-    public static final String USER_DIR = System.getProperty("user.dir");
+    public static final String USER_DIR      = System.getProperty("user.dir");
     // 根目录
-    public static final String DIR      = FileUtils.getFile(USER_DIR).getParent();
+    public static final String DIR           = FileUtils.getFile(USER_DIR).getParent();
+    // DevUtils 根目录
+    public static final String DEV_UTILS_DIR = DIR + File.separator + "DevUtils";
 
     // ===========
     // = Android =
@@ -44,6 +46,10 @@ final class Config {
     // Java 文件目录注释
     public static final Map<String, String> sJavaCatalogMap = new HashMap<>();
 
+    // ============
+    // = DevUtils =
+    // ============
+
     // ================
     // = DevUtils Lib =
     // ================
@@ -51,46 +57,61 @@ final class Config {
     // DevUtils Lib 文件名
     public static final String              DEV_UTILS_DIR_NAME      = "lib";
     // DevUtils Lib 项目本地路径
-    public static final String              DEV_UTILS_LOCAL_PATH    = USER_DIR + File.separator + DEV_UTILS_DIR_NAME;
+    public static final String              DEV_UTILS_LOCAL_PATH    = DEV_UTILS_DIR + File.separator + DEV_UTILS_DIR_NAME;
     // DevUtils Lib 文件目录注释
     public static final Map<String, String> sDevUtilsCatalogMap     = new HashMap<>();
     // DevUtils Lib 忽略目录
     public static final List<String>        sDevUtilsIgnoreCatalogs = new ArrayList<>();
-
-    // ===================
-    // = DevUtils Module =
-    // ===================
-
-    // DevUtils Module 文件名
-    public static final String              MODULE_DIR_NAME       = "module";
-    // DevUtils Module 项目本地路径
-    public static final String              MODULE_LOCAL_PATH     = USER_DIR + File.separator + MODULE_DIR_NAME;
-    // DevUtils Module 文件目录注释
-    public static final Map<String, String> sModuleCatalogMap     = new HashMap<>();
-    // DevUtils Module 忽略目录
-    public static final List<String>        sModuleIgnoreCatalogs = new ArrayList<>();
-
-    // ========================
-    // = DevUtils Interesting =
-    // ========================
-
-    // DevUtils Interesting 文件名
-    public static final String              INTERESTING_DIR_NAME   = "interesting";
-    // DevUtils Interesting 项目本地路径
-    public static final String              INTERESTING_LOCAL_PATH = USER_DIR + File.separator + INTERESTING_DIR_NAME;
-    // DevUtils Interesting 文件目录注释
-    public static final Map<String, String> sInterestingCatalogMap = new HashMap<>();
 
     // ========================
     // = DevUtils Application =
     // ========================
 
     // DevUtils Application 文件名
-    public static final String              APPLICATION_DIR_NAME   = "application";
+    public static final String              DEV_UTILS_APPLICATION_DIR_NAME   = "application";
     // DevUtils Application 项目本地路径
-    public static final String              APPLICATION_LOCAL_PATH = USER_DIR + File.separator + APPLICATION_DIR_NAME;
+    public static final String              DEV_UTILS_APPLICATION_LOCAL_PATH = DEV_UTILS_DIR + File.separator + DEV_UTILS_APPLICATION_DIR_NAME;
     // DevUtils Application 文件目录注释
-    public static final Map<String, String> sApplicationCatalogMap = new HashMap<>();
+    public static final Map<String, String> sDevUtilsApplicationCatalogMap   = new HashMap<>();
+
+    // =================
+    // = DevUtils-repo =
+    // =================
+
+    // =============================
+    // = DevUtils-repo Application =
+    // =============================
+
+    // DevUtils-repo Application 文件名
+    public static final String              DEV_UTILS_REPO_APPLICATION_DIR_NAME   = "application";
+    // DevUtils-repo Application 项目本地路径
+    public static final String              DEV_UTILS_REPO_APPLICATION_LOCAL_PATH = DEV_UTILS_DIR + File.separator + DEV_UTILS_REPO_APPLICATION_DIR_NAME;
+    // DevUtils-repo Application 文件目录注释
+    public static final Map<String, String> sDevUtilsRepoApplicationCatalogMap    = new HashMap<>();
+
+    // ========================
+    // = DevUtils-repo Module =
+    // ========================
+
+    // DevUtils-repo Module 文件名
+    public static final String              DEV_UTILS_REPO_MODULE_DIR_NAME    = "module";
+    // DevUtils-repo Module 项目本地路径
+    public static final String              DEV_UTILS_REPO_MODULE_LOCAL_PATH  = USER_DIR + File.separator + DEV_UTILS_REPO_MODULE_DIR_NAME;
+    // DevUtils-repo Module 文件目录注释
+    public static final Map<String, String> sDevUtilsRepoModuleCatalogMap     = new HashMap<>();
+    // DevUtils-repo Module 忽略目录
+    public static final List<String>        sDevUtilsRepoModuleIgnoreCatalogs = new ArrayList<>();
+
+    // =============================
+    // = DevUtils-repo Interesting =
+    // =============================
+
+    // DevUtils-repo Interesting 文件名
+    public static final String              DEV_UTILS_REPO_INTERESTING_DIR_NAME   = "interesting";
+    // DevUtils-repo Interesting 项目本地路径
+    public static final String              DEV_UTILS_REPO_INTERESTING_LOCAL_PATH = USER_DIR + File.separator + DEV_UTILS_REPO_INTERESTING_DIR_NAME;
+    // DevUtils-repo Interesting 文件目录注释
+    public static final Map<String, String> sDevUtilsRepoInterestingCatalogMap    = new HashMap<>();
 
     static {
 
@@ -115,6 +136,10 @@ final class Config {
 
         sJavaCatalogMap.put("Java", "根目录");
         sJavaCatalogMap.put(".VideoClip", "Java 实现 MP4 裁剪功能");
+
+        // ============
+        // = DevUtils =
+        // ============
 
         // ================
         // = DevUtils Lib =
@@ -170,43 +195,53 @@ final class Config {
         sDevUtilsIgnoreCatalogs.add("DevHttpCaptureCompiler");
         sDevUtilsIgnoreCatalogs.add("DevHttpCaptureCompilerRelease");
 
-        // ===================
-        // = DevUtils Module =
-        // ===================
-
-        sModuleCatalogMap.put("module", "根目录");
-        sModuleCatalogMap.put(".DevBaseModule", "Module 基础复用组件");
-        sModuleCatalogMap.put(".push", "推送 SDK Engine 实现 ( 推送组件化实现 )");
-        sModuleCatalogMap.put(".push.DevGTPush", "个推推送 Engine 实现代码");
-        sModuleCatalogMap.put(".push.DevJPush", "极光推送 Engine 实现代码");
-        sModuleCatalogMap.put(".share", "分享 SDK Engine 实现 ( 分享组件化实现 )");
-        sModuleCatalogMap.put(".share.DevUMShare", "友盟分享 Engine 实现代码");
-
-        // ==========================
-        // = DevUtils Module 忽略目录 =
-        // ==========================
-
-        sModuleIgnoreCatalogs.add("DevBaseModule");
-
-        // ========================
-        // = DevUtils Interesting =
-        // ========================
-
-        sInterestingCatalogMap.put("interesting", "根目录");
-        sInterestingCatalogMap.put(".DevScreenMatch", "Android 屏幕适配生成对应的尺寸文件");
-        sInterestingCatalogMap.put(".DevStandard", "项目规范统一检测、生成替换等");
-
         // ========================
         // = DevUtils Application =
         // ========================
 
-        sApplicationCatalogMap.put("application", "根目录");
-        sApplicationCatalogMap.put(".Accessibility", "Android 无障碍使用 ( Activity 栈 )");
-        sApplicationCatalogMap.put(".AppInfo", "APP 信息提取器");
-        sApplicationCatalogMap.put(".DevBaseDemo", "临时测试代码、库调用调试 Demo");
-        sApplicationCatalogMap.put(".DevUtilsApp", "DevUtils 代码演示应用");
-        sApplicationCatalogMap.put(".GTPush", "个推推送 ( 逻辑 ) 处理 ( 含设备管理 )");
-        sApplicationCatalogMap.put(".JPush", "极光推送 ( 逻辑 ) 处理 ( 含设备管理 )");
-        sApplicationCatalogMap.put(".UMShare", "友盟分享 ( 逻辑 ) 处理");
+        sDevUtilsApplicationCatalogMap.put("application", "根目录");
+        sDevUtilsApplicationCatalogMap.put(".DevBaseDemo", "临时测试代码、库调用调试 Demo");
+        sDevUtilsApplicationCatalogMap.put(".DevUtilsApp", "DevUtils 代码演示应用");
+
+        // =================
+        // = DevUtils-repo =
+        // =================
+
+        // =============================
+        // = DevUtils-repo Application =
+        // =============================
+
+        sDevUtilsRepoApplicationCatalogMap.put("application", "根目录");
+        sDevUtilsRepoApplicationCatalogMap.put(".Accessibility", "Android 无障碍使用 ( Activity 栈 )");
+        sDevUtilsRepoApplicationCatalogMap.put(".AppInfo", "APP 信息提取器");
+        sDevUtilsRepoApplicationCatalogMap.put(".GTPush", "个推推送 ( 逻辑 ) 处理 ( 含设备管理 )");
+        sDevUtilsRepoApplicationCatalogMap.put(".JPush", "极光推送 ( 逻辑 ) 处理 ( 含设备管理 )");
+        sDevUtilsRepoApplicationCatalogMap.put(".UMShare", "友盟分享 ( 逻辑 ) 处理");
+
+        // ========================
+        // = DevUtils-repo Module =
+        // ========================
+
+        sDevUtilsRepoModuleCatalogMap.put("module", "根目录");
+        sDevUtilsRepoModuleCatalogMap.put(".DevBaseModule", "Module 基础复用组件");
+        sDevUtilsRepoModuleCatalogMap.put(".push", "推送 SDK Engine 实现 ( 推送组件化实现 )");
+        sDevUtilsRepoModuleCatalogMap.put(".push.DevGTPush", "个推推送 Engine 实现代码");
+        sDevUtilsRepoModuleCatalogMap.put(".push.DevJPush", "极光推送 Engine 实现代码");
+        sDevUtilsRepoModuleCatalogMap.put(".share", "分享 SDK Engine 实现 ( 分享组件化实现 )");
+        sDevUtilsRepoModuleCatalogMap.put(".share.DevUMShare", "友盟分享 Engine 实现代码");
+
+        // ================================
+        // = DevUtils-repo Module 忽略目录 =
+        // ================================
+
+        sDevUtilsRepoModuleIgnoreCatalogs.add("DevBaseModule");
+
+        // =============================
+        // = DevUtils-repo Interesting =
+        // =============================
+
+        sDevUtilsRepoInterestingCatalogMap.put("interesting", "根目录");
+        sDevUtilsRepoInterestingCatalogMap.put(".DevScreenMatch", "Android 屏幕适配生成对应的尺寸文件");
+        sDevUtilsRepoInterestingCatalogMap.put(".DevStandard", "项目规范统一检测、生成替换等");
     }
 }

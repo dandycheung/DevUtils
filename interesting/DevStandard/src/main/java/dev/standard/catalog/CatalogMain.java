@@ -46,23 +46,37 @@ final class CatalogMain {
                 Config.sDevUtilsCatalogMap, Config.sDevUtilsIgnoreCatalogs, 2
         );
 
-        // 生成 DevUtils Module 汇总项目目录结构 - https://github.com/afkT/DevUtils/blob/master/module
-        print(
-                Config.MODULE_LOCAL_PATH, Config.MODULE_DIR_NAME,
-                Config.sModuleCatalogMap, Config.sModuleIgnoreCatalogs, 1
-        );
-
-        // 生成 DevUtils Interesting 汇总项目目录结构 - https://github.com/afkT/DevUtils/blob/master/interesting
-        print(
-                Config.INTERESTING_LOCAL_PATH, Config.INTERESTING_DIR_NAME,
-                Config.sInterestingCatalogMap, null, 0
-        );
-
         // 生成 DevUtils Application 汇总项目目录结构 - https://github.com/afkT/DevUtils/blob/master/application
         print(
-                Config.APPLICATION_LOCAL_PATH, Config.APPLICATION_DIR_NAME,
-                Config.sApplicationCatalogMap, null, 0
+                Config.DEV_UTILS_APPLICATION_LOCAL_PATH, Config.DEV_UTILS_APPLICATION_DIR_NAME,
+                Config.sDevUtilsApplicationCatalogMap, null, 0
         );
+
+        // ======================
+        // = afkT/DevUtils-repo =
+        // ======================
+
+        // 生成 DevUtils-repo Application 汇总项目目录结构 - https://github.com/afkT/DevUtils-repo/blob/master/application
+        print(
+                Config.DEV_UTILS_REPO_APPLICATION_LOCAL_PATH, Config.DEV_UTILS_REPO_APPLICATION_DIR_NAME,
+                Config.sDevUtilsRepoApplicationCatalogMap, null, 0
+        );
+
+        // 生成 DevUtils-repo Module 汇总项目目录结构 - https://github.com/afkT/DevUtils-repo/blob/master/module
+        print(
+                Config.DEV_UTILS_REPO_MODULE_LOCAL_PATH, Config.DEV_UTILS_REPO_MODULE_DIR_NAME,
+                Config.sDevUtilsRepoModuleCatalogMap, Config.sDevUtilsRepoModuleIgnoreCatalogs, 1
+        );
+
+        // 生成 DevUtils-repo Interesting 汇总项目目录结构 - https://github.com/afkT/DevUtils-repo/blob/master/interesting
+        print(
+                Config.DEV_UTILS_REPO_INTERESTING_LOCAL_PATH, Config.DEV_UTILS_REPO_INTERESTING_DIR_NAME,
+                Config.sDevUtilsRepoInterestingCatalogMap, null, 0
+        );
+
+        // =========
+        // = debug =
+        // =========
 
         String all = sBuilder.toString();
     }
