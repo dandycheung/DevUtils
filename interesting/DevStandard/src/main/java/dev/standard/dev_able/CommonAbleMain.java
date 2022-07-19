@@ -82,7 +82,7 @@ public class CommonAbleMain {
 
     private static String getIgnoreAbleCLass() {
         StringBuilder builder = new StringBuilder();
-        for (Utils.Replace info: REPLACE_LIST) {
+        for (Utils.Replace info : REPLACE_LIST) {
             builder.append(DevFinal.SYMBOL.NEW_LINE)
                     .append("        sFilterClassSet_APP.add(\"")
                     .append(info.getFileName())
