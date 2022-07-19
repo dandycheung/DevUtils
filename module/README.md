@@ -7,8 +7,6 @@
 ```
 - module                      | 根目录
    - DevBaseModule            | Module 基础复用组件
-   - DevComponent             | 【100% Kotlin 实现 Android 项目组件化示例代码】
-      - lib_utils             | /core/libs/lib_utils
    - push                     | 推送 SDK Engine 实现 ( 推送组件化实现 )
       - DevGTPush             | 个推推送 Engine 实现代码
       - DevJPush              | 极光推送 Engine 实现代码

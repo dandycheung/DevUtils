@@ -39,8 +39,14 @@ dependencies {
 
     api project(':DevApp')
     api project(':DevAssist')
-    api project(':DevBaseModule')
     api project(':DevEngine')
+
+    // ==========
+    // = Module =
+    // ==========
+
+    // Module 基础复用组件
+    api project(':DevBaseModule')
 
     // ===========================
     // = Maven Central 方式自动集成 =

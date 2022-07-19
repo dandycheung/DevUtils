@@ -13,7 +13,7 @@ final class DevFinalIgnore {
 
     public static HashSet<String> ignoreSet() {
         HashSet<String> hashSet = new HashSet<>();
-        Field[]         fields  = DevFinalIgnore.STR.class.getDeclaredFields();
+        Field[]         fields  = STR.class.getDeclaredFields();
         for (Field field : fields) {
             String fieldName = field.getName();
             String name      = StringUtils.upperFirstLetter(fieldName.toLowerCase());

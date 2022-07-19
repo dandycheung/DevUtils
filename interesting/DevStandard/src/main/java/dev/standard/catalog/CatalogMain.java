@@ -43,7 +43,7 @@ final class CatalogMain {
         // 生成 DevUtils Lib 汇总项目目录结构 - https://github.com/afkT/DevUtils/blob/master/lib
         print(
                 Config.DEV_UTILS_LOCAL_PATH, Config.DEV_UTILS_DIR_NAME,
-                Config.sDevUtilsCatalogMap, Config.sDevUtilsIgnoreCatalogs, 1
+                Config.sDevUtilsCatalogMap, Config.sDevUtilsIgnoreCatalogs, 2
         );
 
         // 生成 DevUtils Module 汇总项目目录结构 - https://github.com/afkT/DevUtils/blob/master/module

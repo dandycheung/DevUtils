@@ -143,6 +143,8 @@ final class Config {
         sDevUtilsCatalogMap.put(".LocalModules.DevBase2", "Base 基础代码 ( 非基类库 )");
         sDevUtilsCatalogMap.put(".LocalModules.DevOther", "第三方库封装、以及部分特殊工具类等, 方便 copy 封装类使用");
         sDevUtilsCatalogMap.put(".LocalModules.DevSKU", "商品 SKU 组合封装实现");
+        sDevUtilsCatalogMap.put(".LocalModules.DevComponent", "【100% Kotlin 实现 Android 项目组件化示例代码】");
+        sDevUtilsCatalogMap.put(".LocalModules.DevComponent.lib_utils", "/core/libs/lib_utils");
 
         // =======================
         // = DevUtils Lib 忽略目录 =
@@ -161,6 +163,12 @@ final class Config {
         sDevUtilsIgnoreCatalogs.add("DevOther");
         sDevUtilsIgnoreCatalogs.add("DevSKU");
         sDevUtilsIgnoreCatalogs.add("DevWidget");
+        sDevUtilsIgnoreCatalogs.add("DevEnvironment");
+        sDevUtilsIgnoreCatalogs.add("DevEnvironmentBase");
+        sDevUtilsIgnoreCatalogs.add("DevEnvironmentCompiler");
+        sDevUtilsIgnoreCatalogs.add("DevEnvironmentCompilerRelease");
+        sDevUtilsIgnoreCatalogs.add("DevHttpCaptureCompiler");
+        sDevUtilsIgnoreCatalogs.add("DevHttpCaptureCompilerRelease");
 
         // ===================
         // = DevUtils Module =
@@ -168,8 +176,6 @@ final class Config {
 
         sModuleCatalogMap.put("module", "根目录");
         sModuleCatalogMap.put(".DevBaseModule", "Module 基础复用组件");
-        sModuleCatalogMap.put(".DevComponent", "【100% Kotlin 实现 Android 项目组件化示例代码】");
-        sModuleCatalogMap.put(".DevComponent.lib_utils", "/core/libs/lib_utils");
         sModuleCatalogMap.put(".push", "推送 SDK Engine 实现 ( 推送组件化实现 )");
         sModuleCatalogMap.put(".push.DevGTPush", "个推推送 Engine 实现代码");
         sModuleCatalogMap.put(".push.DevJPush", "极光推送 Engine 实现代码");
