@@ -14,8 +14,8 @@ import android.webkit.WebView
 import android.webkit.WebView.HitTestResult
 import android.webkit.WebViewClient
 import com.alibaba.android.arouter.facade.annotation.Route
+import dev.assist.WebViewAssist
 import dev.kotlin.engine.log.log_dTag
-import ktx.dev.assist.WebViewAssist
 
 /**
  * detail: WebView 辅助类
