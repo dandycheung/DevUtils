@@ -50,6 +50,10 @@ android {
 dependencies {
     implementation project(':DevBaseMVVM')
 
+    // =========
+    // = 非 lib =
+    // =========
+
     // DevComponent /core/libs/lib_utils
     implementation project(':lib_utils')
 

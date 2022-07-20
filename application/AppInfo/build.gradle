@@ -9,13 +9,18 @@ android {
 dependencies {
     implementation project(':DevApp')
     implementation project(':DevAssist')
-    implementation project(':DevBase2')
     implementation project(':DevBaseMVVM')
     implementation project(':DevEngine')
     implementation project(':DevWidget')
 
+    // =========
+    // = 非 lib =
+    // =========
+
     // DevComponent /core/libs/lib_utils
     implementation project(':lib_utils')
+
+    implementation project(':DevBase2')
 
     // ============
     // = 快捷开发库 =
